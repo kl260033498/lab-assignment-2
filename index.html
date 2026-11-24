@@ -1,0 +1,168 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <!-- Browser Metadata & Character Encoding --> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="description" content="University Student Activity Management Portal - Explore 
+clubs, view upcoming campus events, and register online."> 
+  <meta name="keywords" content="University Events, Student Activities, Campus Clubs, Event 
+Registration"> 
+  <meta name="author" content="KL University Student Affairs IT"> 
+  <title>Student Activity Management Portal | KL University</title> 
+ 
+  <!-- Minimal Accessible CSS for Visual Hierarchy & Keyboard Focus -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head> 
+<body> 
+ 
+  <!-- Accessibility Skip Link --> 
+  <a href="#main-content" class="skip-link">Skip to main content</a> 
+ 
+  <!-- Page Header & Primary Navigation --> 
+  <header> 
+    <h1>KL University Student Activity Portal</h1> 
+    <p>Discover campus clubs, cultural fests, and technical workshops.</p> 
+    <nav aria-label="Primary Navigation"> 
+      <ul> 
+        <li><a href="#upcoming-events">Upcoming Events</a></li> 
+        <li><a href="#campus-clubs">Campus Clubs</a></li> 
+        <li><a href="#event-registration">Event Registration</a></li> 
+      </ul> 
+    </nav> 
+  </header> 
+ 
+  <!-- Main Content Layout --> 
+  <div class="container"> 
+    <main id="main-content"> 
+ 
+      <!-- Section 1: Upcoming Events --> 
+      <section id="upcoming-events" aria-labelledby="events-heading"> 
+        <h2 id="events-heading">Upcoming University Events</h2> 
+ 
+        <article> 
+          <h3>Annual Hackathon: CodePulse 2026</h3> 
+          <p><strong>Date:</strong> <time datetime="2026-12-05">December 5, 2026</time> | 
+<strong>Venue:</strong> Main Auditorium</p> 
+          <p>A 24-hour inter-departmental coding marathon focused on sustainable campus 
+solutions.</p> 
+        </article> 
+ 
+        <article> 
+          <h3>Winter Cultural Fiesta</h3> 
+          <p><strong>Date:</strong> <time datetime="2026-12-12">December 12, 2026</time> | 
+<strong>Venue:</strong> Open Air Theatre</p> 
+          <p>An evening of live music, drama, and culinary stalls organized by the Student Cultural 
+Council.</p> 
+        </article> 
+      </section> 
+ 
+      <!-- Section 2: Student Registration Form --> 
+      <section id="event-registration" aria-labelledby="registration-heading"> 
+        <h2 id="registration-heading">Student Event Registration</h2> 
+        <p id="form-instructions">Fields marked with an asterisk (<span aria
+hidden="true">*</span>) are required.</p> 
+ 
+        <form action="/submit-registration" method="POST" aria-describedby="form-instructions"> 
+           
+          <!-- Text Inputs --> 
+          <div class="form-group"> 
+            <label for="full-name">Full Name <span aria-hidden="true">*</span></label> 
+            <input type="text" id="full-name" name="fullName" required autocomplete="name" 
+placeholder="e.g., Aarav Sharma"> 
+          </div> 
+ 
+          <div class="form-group"> 
+            <label for="student-id">Student Roll Number <span aria-hidden="true">*</span></label> 
+            <input type="text" id="student-id" name="studentId" required pattern="[A-Z0-9]{6,10}" 
+aria-describedby="id-help" placeholder="e.g., KLU2026CS01"> 
+            <small id="id-help">Enter your 6 to 10 character alphanumeric university ID.</small> 
+          </div> 
+ 
+          <div class="form-group"> 
+            <label for="email">University Email <span aria-hidden="true">*</span></label> 
+            <input type="email" id="email" name="email" required autocomplete="email" 
+placeholder="aarav.s@kluniversity.in"> 
+          </div> 
+ 
+          <!-- Dropdown Select --> 
+          <div class="form-group"> 
+            <label for="event-select">Select Event <span aria-hidden="true">*</span></label> 
+            <select id="event-select" name="selectedEvent" required> 
+              <option value="">-- Choose an upcoming event --</option> 
+              <option value="codepulse">Annual Hackathon: CodePulse 2026</option> 
+              <option value="cultural-fiesta">Winter Cultural Fiesta</option> 
+              <option value="robotics-workshop">Autonomous Robotics Workshop</option> 
+            </select> 
+          </div> 
+ 
+          <!-- Radio Buttons Group --> 
+          <fieldset> 
+            <legend>Participation Mode <span aria-hidden="true">*</span></legend> 
+            <label class="inline-label" for="mode-solo"> 
+              <input type="radio" id="mode-solo" name="participationMode" value="solo" required> 
+              Individual (Solo) 
+            </label> 
+            <label class="inline-label" for="mode-team"> 
+              <input type="radio" id="mode-team" name="participationMode" value="team"> 
+              Team (2–4 Members) 
+            </label> 
+          </fieldset> 
+ 
+          <!-- Checkboxes Group --> 
+          <fieldset> 
+            <legend>Areas of Interest (Optional)</legend> 
+            <label class="inline-label" for="interest-tech"> 
+              <input type="checkbox" id="interest-tech" name="interests" value="technology"> 
+              Technology & Coding 
+            </label> 
+            <label class="inline-label" for="interest-arts"> 
+              <input type="checkbox" id="interest-arts" name="interests" value="arts"> 
+              Performing Arts 
+            </label> 
+            <label class="inline-label" for="interest-sports"> 
+              <input type="checkbox" id="interest-sports" name="interests" value="sports"> 
+              Athletics & Sports 
+            </label> 
+          </fieldset> 
+ 
+          <!-- Textarea --> 
+          <div class="form-group"> 
+            <label for="special-requirements">Dietary or Accessibility Accommodations</label> 
+            <textarea id="special-requirements" name="accommodations" rows="4" 
+placeholder="Let us know if you require wheelchair access, sign language interpretation, or 
+specific meal preferences."></textarea> 
+          </div> 
+ 
+          <button type="submit">Complete Registration</button> 
+        </form> 
+      </section> 
+ 
+    </main> 
+ 
+    <!-- Complementary Sidebar --> 
+    <aside id="campus-clubs" aria-labelledby="aside-heading"> 
+      <h2 id="aside-heading">Active Student Clubs</h2> 
+      <ul> 
+        <li><strong>ACM Student Chapter:</strong> Meets every Wednesday at 4:00 PM in Lab 
+3.</li> 
+        <li><strong>Debate & Literary Society:</strong> Meets every Friday at 5:00 PM in Room 
+104.</li> 
+        <li><strong>Eco-Campus Volunteers:</strong> Weekend drives every Saturday 
+morning.</li> 
+      </ul> 
+      <hr> 
+      <h3>Help Desk</h3> 
+      <p>Need assistance with registration? Contact <a 
+href="mailto:activities@kluniversity.in">activities@kluniversity.in</a>.</p> 
+    </aside> 
+  </div> 
+ 
+  <!-- Page Footer --> 
+  <footer> 
+    <p>&copy; 2026 KL University Office of Student Affairs. All rights reserved.</p> 
+  </footer> 
+ 
+</body> 
+</html>
